@@ -1,4 +1,15 @@
+import { IsString, IsEmail, IsNotEmpty } from "@nestjs/class-validator";
+
 export class CreateAdminDto {
-    readonly username: string;
-    readonly password: string;
+    @IsNotEmpty()
+    @IsString()
+    name: string;
+
+    @IsNotEmpty()
+    @IsEmail()
+    email: string;
+
+    @IsNotEmpty()
+    @IsString()
+    password: string;
 }

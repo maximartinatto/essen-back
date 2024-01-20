@@ -10,7 +10,8 @@ export class AdminService {
   constructor(
     @InjectRepository(Admin)
     private readonly adminRepository: Repository<Admin>,
-  ) {}
+    
+  ) { }
 
   findAll(): Promise<Admin[]> {
     return this.adminRepository.find();
@@ -20,16 +21,16 @@ export class AdminService {
     return this.adminRepository.findOneBy({ id });
   }
 
-  create(createAdminDto: CreateAdminDto): Promise<Admin>{
+  create(createAdminDto: CreateAdminDto): Promise<Admin> {
     const admin = this.adminRepository.create(createAdminDto);
     return this.adminRepository.save(admin);
   }
 
-  update(id: number, updateAdminDto: UpdateAdminDto): Promise<Admin>{
-    return this.adminRepository.save({ id, ...updateAdminDto});
+  update(id: number, updateAdminDto: UpdateAdminDto): Promise<Admin> {
+    return this.adminRepository.save({ id, ...updateAdminDto });
   }
 
-  delete(id: number): Promise<void>{
+  delete(id: number): Promise<void> {
     return this.adminRepository.delete(id).then();
   }
 }
