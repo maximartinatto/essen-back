@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne } from 'typeorm';
 import { Product } from 'src/product/entities/product.entity';
 
 @Entity()
@@ -7,11 +7,11 @@ export class Catalog {
     id: number;
 
     @Column()
-    year: number;
+    month: number;
 
     @Column()
-    month: string;
+    year: number;
 
-    @OneToMany(() => Product, (product) => product.catalog)
+    @ManyToOne(() => Product, (product) => product.catalog)
     products: Product[];
 }
