@@ -20,6 +20,10 @@ export class UsersService {
         return this.userRepository.findOneBy({ id });
     }
 
+    findOneByName(username: string): Promise<User | undefined>{
+        return this.userRepository.findOneBy({ username });
+    }
+
     create(createUserDto: CreateUserDto) {
         return this.userRepository.save(createUserDto)
     }

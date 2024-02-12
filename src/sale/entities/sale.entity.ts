@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
-import { User } from "src/user/entities/user.entity";
+import { Client } from "src/client/entities/client.entity";
 
 @Entity()
 export class Sale {
@@ -9,6 +9,6 @@ export class Sale {
     @Column()
     amount: number;
 
-    @ManyToOne(() => User, (user) => user.sales)
-    user: User
+    @ManyToOne(() => Client, (client) => client.sales)
+    client: Client
 }

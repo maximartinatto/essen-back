@@ -1,8 +1,8 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
 import { Sale } from "src/sale/entities/sale.entity";
 
-@Entity({name: 'user'})
-export class User {
+@Entity({name: 'client'})
+export class Client {
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -27,6 +27,6 @@ export class User {
     @Column()
     phone: string;
 
-    @OneToMany(() => Sale, (sale) => sale.user)
+    @OneToMany(() => Sale, (sale) => sale.client)
     sales: Sale[];
 }
